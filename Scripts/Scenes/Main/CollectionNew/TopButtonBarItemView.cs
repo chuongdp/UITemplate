@@ -1,9 +1,9 @@
-namespace TheOneStudio.UITemplate.UITemplate.Scenes.Main.CollectionNew
+namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Main.CollectionNew
 {
     using System;
     using GameFoundation.Scripts.AssetLibrary;
     using GameFoundation.Scripts.UIModule.MVP;
-    using TheOneStudio.UITemplate.UITemplate.Services;
+    using HyperGames.UnityTemplate.UnityTemplate.Services;
     using TMPro;
     using UnityEngine;
     using UnityEngine.Scripting;
@@ -41,32 +41,32 @@ namespace TheOneStudio.UITemplate.UITemplate.Scenes.Main.CollectionNew
 
     public class TopButtonPresenter : BaseUIItemPresenter<TopButtonBarItemView, TopButtonItemModel>
     {
-        private readonly UITemplateSoundServices soundServices;
+        private readonly UnityTemplateSoundServices soundServices;
 
         [Preserve]
-        public TopButtonPresenter(IGameAssets gameAssets, UITemplateSoundServices soundServices) : base(gameAssets)
+        public TopButtonPresenter(IGameAssets gameAssets, UnityTemplateSoundServices soundServices) : base(gameAssets)
         {
             this.soundServices = soundServices;
         }
 
-        public override async void BindData(TopButtonItemModel param)
+        public override void BindData(TopButtonItemModel param)
         {
-            if (this.View.txtTittle != null)
-            {
-                this.View.txtTittle.text = param.Title;
-            }
+            if (this.View.txtTittle != null) this.View.txtTittle.text = param.Title;
 
-            if (this.View.imgIcon != null)
-            {
-                this.View.imgIcon.sprite = param.Icon;
-            }
+            if (this.View.imgIcon != null) this.View.imgIcon.sprite = param.Icon;
 
             this.View.btnChoose.gameObject.SetActive(param.Index == param.SelectedIndex);
             this.View.btnNormal.gameObject.SetActive(param.Index != param.SelectedIndex);
 
-            this.View.OnButtonClick = () => { param.OnSelected?.Invoke(param); };
+            this.View.OnButtonClick = () =>
+            {
+                param.OnSelected?.Invoke(param);
+            };
         }
 
-        public override void Dispose() { base.Dispose(); }
+        public override void Dispose()
+        {
+            base.Dispose();
+        }
     }
 }

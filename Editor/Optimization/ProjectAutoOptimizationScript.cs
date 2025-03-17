@@ -1,6 +1,6 @@
-namespace TheOne.Tool.Optimization
+namespace HyperGames.Tool.Optimization
 {
-    using TheOne.Tool.Optimization.Addressable;
+    using HyperGames.Tool.Optimization.Addressable;
     using UnityEditor;
     using UnityEngine;
 
@@ -14,12 +14,11 @@ namespace TheOne.Tool.Optimization
                 Debug.LogWarning("Skipping migration due to compilation errors or isCompiling.");
                 return;
             }
-            
+
             if (!SessionState.GetBool("AutoOptimizeRan", false))
             {
-                SessionState.SetBool("AutoOptimizeRan", true);            
+                SessionState.SetBool("AutoOptimizeRan", true);
                 BuildInScreenFinderOdin.AutoOptimize();
-
             }
         }
     }

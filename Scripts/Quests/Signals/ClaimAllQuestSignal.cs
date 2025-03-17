@@ -1,7 +1,6 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Quests.Signals
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Quests.Signals
 {
     public class ClaimAllQuestSignal
     {
-        
     }
 }

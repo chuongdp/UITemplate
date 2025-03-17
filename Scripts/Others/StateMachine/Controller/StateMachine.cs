@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Controller
+namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Controller
 {
     using System;
     using System.Collections.Generic;
@@ -6,9 +6,9 @@ namespace TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Controller
     using GameFoundation.DI;
     using GameFoundation.Scripts.Utilities.LogService;
     using GameFoundation.Signals;
-    using TheOneStudio.HyperCasual.Others.StateMachine.Interface;
-    using TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Interface;
-    using TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Signals;
+    using HyperGames.HyperCasual.Others.StateMachine.Interface;
+    using HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Interface;
+    using HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Signals;
 
     public abstract class StateMachine : IStateMachine, ITickable
     {
@@ -22,8 +22,8 @@ namespace TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Controller
 
         protected StateMachine(
             List<IState> listState,
-            ILogService logService,
-            SignalBus signalBus
+            ILogService  logService,
+            SignalBus    signalBus
         )
         {
             this.LogService  = logService;
@@ -33,7 +33,10 @@ namespace TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Controller
 
         public IState CurrentState { get; private set; }
 
-        public void TransitionTo<T>() where T : class, IState { this.TransitionTo(typeof(T)); }
+        public void TransitionTo<T>() where T : class, IState
+        {
+            this.TransitionTo(typeof(T));
+        }
 
         public void TransitionTo<TState, TModel>(TModel model) where TState : class, IState<TModel>
         {

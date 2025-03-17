@@ -1,24 +1,23 @@
-﻿#if THEONE_NOTIFICATION && UNITY_IOS
-
-namespace TheOneStudio.UITemplate.UITemplate.Services
+﻿#if HYPERGAMES_NOTIFICATION && UNITY_IOS
+namespace HyperGames.UnityTemplate.UnityTemplate.Services
 {
     using Core.AnalyticServices;
     using GameFoundation.Scripts.Utilities.LogService;
-    using TheOneStudio.UITemplate.UITemplate.Blueprints;
+    using HyperGames.UnityTemplate.UnityTemplate.Blueprints;
     using GameFoundation.Signals;
     using System;
     using Cysharp.Threading.Tasks;
-    using TheOneStudio.UITemplate.UITemplate.Services.Permissions;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.Permissions;
     using Unity.Notifications.iOS;
     using UnityEngine.Scripting;
 
     public class IOSUnityNotificationService : BaseUnityNotificationService
     {
         [Preserve]
-        public IOSUnityNotificationService(SignalBus signalBus, UITemplateNotificationBlueprint uiTemplateNotificationBlueprint,
-            UITemplateNotificationDataBlueprint uiTemplateNotificationDataBlueprint, NotificationMappingHelper notificationMappingHelper, ILogService logger, IAnalyticServices analyticServices,
+        public IOSUnityNotificationService(SignalBus signalBus, UnityTemplateNotificationBlueprint UnityTemplateNotificationBlueprint,
+            UnityTemplateNotificationDataBlueprint UnityTemplateNotificationDataBlueprint, NotificationMappingHelper notificationMappingHelper, ILogService logger, IAnalyticServices analyticServices,
             IPermissionService permissionService) :
-            base(signalBus, uiTemplateNotificationBlueprint, uiTemplateNotificationDataBlueprint, notificationMappingHelper, logger, analyticServices, permissionService)
+            base(signalBus, UnityTemplateNotificationBlueprint, UnityTemplateNotificationDataBlueprint, notificationMappingHelper, logger, analyticServices, permissionService)
         {
         }
 
@@ -39,8 +38,8 @@ namespace TheOneStudio.UITemplate.UITemplate.Services
         {
             var notification = new iOSNotification()
             {
-                Title   = title,
-                Body    = body,
+                Title = title,
+                Body = body,
                 Trigger = new iOSNotificationTimeIntervalTrigger() { TimeInterval = delayTime }
             };
             iOSNotificationCenter.ScheduleNotification(notification);

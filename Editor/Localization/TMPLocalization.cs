@@ -1,5 +1,5 @@
-#if THEONE_LOCALIZATION
-namespace TheOne.Tool.Localization
+#if HYPERGAMES_LOCALIZATION
+namespace HyperGames.Tool.Localization
 {
     using System;
     using System.Collections.Generic;
@@ -7,14 +7,10 @@ namespace TheOne.Tool.Localization
     using GameFoundation.Scripts.Utilities.Extension;
     using Sirenix.OdinInspector;
     using Sirenix.OdinInspector.Editor;
-    using TheOne.Tool.Core;
-    using TheOneStudio.UITemplate.UITemplate;
+    using HyperGames.Tool.Core;
     using TMPro;
     using UnityEditor;
     using UnityEngine;
-    using UnityEngine.Localization.Components;
-    using UnityEngine.Localization.Settings;
-    using UnityEngine.Localization.Tables;
     using Object = UnityEngine.Object;
 
     public enum TextMeshType
@@ -99,7 +95,7 @@ namespace TheOne.Tool.Localization
                         var value = field.GetValue(monoBehaviour) as TMP_Text;
                         if (value == tmp)
                         {
-                            refMono   = monoBehaviour;
+                            refMono = monoBehaviour;
                             fieldName = field.Name;
                             return true;
                         }
@@ -108,7 +104,7 @@ namespace TheOne.Tool.Localization
                     {
                         if (field.GetValue(monoBehaviour) is IEnumerable<TMP_Text> collection && collection.Contains(tmp))
                         {
-                            refMono   = monoBehaviour;
+                            refMono = monoBehaviour;
                             fieldName = field.Name;
                             return true;
                         }
@@ -148,7 +144,7 @@ namespace TheOne.Tool.Localization
         [ShowInInspector, TabGroup("DynamicLocalized"), TableList]
         private List<TMPTextInfo> dynamicLocalizedTextInfos = new();
 
-        [MenuItem("TheOne/Localization")]
+        [MenuItem("HyperGames/Localization")]
         private static void OpenWindow() { GetWindow<TMPLocalization>().Show(); }
     }
 
@@ -170,7 +166,7 @@ namespace TheOne.Tool.Localization
         public TMPTextInfo(TMP_Text text, GameObject gameObject)
         {
             this.tmpText = text;
-            this.prefab  = gameObject;
+            this.prefab = gameObject;
         }
 
         private void RemoveElementFromList()
@@ -198,7 +194,7 @@ namespace TheOne.Tool.Localization
         public void Localized()
         {
             var isTMPReferencedInGameObject = TMPLocalization.IsTMPReferencedInGameObject(this.tmpText, this.prefab, out var refMn, out var fn);
-            this.refMono   = refMn;
+            this.refMono = refMn;
             this.fieldName = fn;
             this.UpdatePrefab((tmpTextInInstance) =>
             {
@@ -241,8 +237,8 @@ namespace TheOne.Tool.Localization
 
         private void UpdatePrefab(Action<GameObject> updatePrefabAction, List<TMPTextInfo> newList)
         {
-            var prefabInstance    = PrefabUtility.InstantiatePrefab(this.prefab) as GameObject;
-            var pathInPrefab      = GetPathInPrefab(this.tmpText.transform);
+            var prefabInstance = PrefabUtility.InstantiatePrefab(this.prefab) as GameObject;
+            var pathInPrefab = GetPathInPrefab(this.tmpText.transform);
             var tmpTextInInstance = GetGameObjectInPrefabInstance(prefabInstance, pathInPrefab);
 
             updatePrefabAction.Invoke(tmpTextInInstance);
@@ -275,7 +271,7 @@ namespace TheOne.Tool.Localization
             var path = t.name;
             while (t.parent.parent != null) // We check the parent's parent to stop one level before the root
             {
-                t    = t.parent;
+                t = t.parent;
                 path = t.name + "/" + path;
             }
 

@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Creative.Cheat
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Creative.Cheat
 {
     public interface ICheatDetector
     {

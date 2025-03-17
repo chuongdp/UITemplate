@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.Quests.Conditions
+namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
     using Newtonsoft.Json;

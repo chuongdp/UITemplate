@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services
 {
     using Core.AdsServices.Signals;
     using GameFoundation.DI;
@@ -21,7 +21,6 @@
         }
 
         #endregion
-
 
         public void Initialize()
         {

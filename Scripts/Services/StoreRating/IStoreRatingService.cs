@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating
 {
     using Cysharp.Threading.Tasks;
 

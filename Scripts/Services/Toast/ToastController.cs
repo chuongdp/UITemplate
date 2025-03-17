@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services.Toast
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.Toast
 {
     using System.Threading;
     using Cysharp.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.Toast
     {
         Bottom,
         Top,
-        Center
+        Center,
     }
 
     public class ToastController : MonoBehaviour
@@ -28,7 +28,7 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.Toast
                 ToastPosition.Top    => this.topObj,
                 ToastPosition.Center => this.centerObj,
                 ToastPosition.Bottom => this.bottomObj,
-                _                    => this.bottomObj
+                _                    => this.bottomObj,
             };
         }
 
@@ -48,7 +48,7 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.Toast
                     this.toastObj.SetActive(false);
                 });
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 // ignored
             }

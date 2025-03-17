@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
+namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.Conditions
 {
     using Newtonsoft.Json;
 
@@ -7,7 +7,7 @@ namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
         string Id { get; }
         bool   IsPassedCondition(string data);
     }
-    
+
     public abstract class FtueCondition<T> : IFtueCondition
     {
         public abstract string Id { get; }
@@ -16,7 +16,7 @@ namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
         {
             return this.IsPassedCondition(JsonConvert.DeserializeObject<T>(data));
         }
-        
+
         protected abstract bool IsPassedCondition(T data);
     }
 }

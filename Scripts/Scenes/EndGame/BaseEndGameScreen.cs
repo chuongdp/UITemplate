@@ -1,12 +1,13 @@
-namespace TheOneStudio.UITemplate.UITemplate.Scenes.EndGame
+namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.EndGame
 {
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
     using GameFoundation.Scripts.Utilities.LogService;
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Scenes.Utils;
-    using TheOneStudio.UITemplate.UITemplate.Scripts.ThirdPartyServices;
-    using TheOneStudio.UITemplate.UITemplate.Services;
+    using HyperGames.UnityTemplate.Scripts.Scenes.Utils;
+    using HyperGames.UnityTemplate.UnityTemplate.Scripts.ThirdPartyServices;
+    using HyperGames.UnityTemplate.UnityTemplate.Services;
+    using HyperGames.UnityTemplate.UnityTemplate.Scenes.Utils;
     using UnityEngine.UI;
 
     public abstract class BaseEndGameScreenView : BaseView
@@ -14,19 +15,19 @@ namespace TheOneStudio.UITemplate.UITemplate.Scenes.EndGame
         public Button btnNext;
     }
 
-    public abstract class BaseEndGameScreenPresenter<TView> : UITemplateBaseScreenPresenter<TView> where TView : BaseEndGameScreenView
+    public abstract class BaseEndGameScreenPresenter<TView> : UnityTemplateBaseScreenPresenter<TView> where TView : BaseEndGameScreenView
     {
-        protected readonly UITemplateSoundServices    SoundServices;
-        protected readonly UITemplateAdServiceWrapper UITemplateAdService;
+        protected readonly UnityTemplateSoundServices    SoundServices;
+        protected readonly UnityTemplateAdServiceWrapper UnityTemplateAdService;
 
         protected BaseEndGameScreenPresenter(
             SignalBus                  signalBus,
             ILogService                logger,
-            UITemplateAdServiceWrapper uiTemplateAdService,
-            UITemplateSoundServices    soundServices
+            UnityTemplateAdServiceWrapper UnityTemplateAdService,
+            UnityTemplateSoundServices    soundServices
         ) : base(signalBus, logger)
         {
-            this.UITemplateAdService = uiTemplateAdService;
+            this.UnityTemplateAdService = UnityTemplateAdService;
             this.SoundServices       = soundServices;
         }
 

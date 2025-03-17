@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.BreakAds
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.BreakAds
 {
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
@@ -22,10 +22,19 @@
             this.breakAdsViewHelper = breakAdsViewHelper;
         }
 
-        protected override void OnViewReady() { this.breakAdsViewHelper.OnViewReady(this.View, this); }
+        protected override void OnViewReady()
+        {
+            this.breakAdsViewHelper.OnViewReady(this.View, this);
+        }
 
-        public override UniTask BindData() { return this.breakAdsViewHelper.BindData(); }
+        public override UniTask BindData()
+        {
+            return this.breakAdsViewHelper.BindData();
+        }
 
-        public override void Dispose() { this.breakAdsViewHelper.Dispose(); }
+        public override void Dispose()
+        {
+            this.breakAdsViewHelper.Dispose();
+        }
     }
 }

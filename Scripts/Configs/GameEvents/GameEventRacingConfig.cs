@@ -1,8 +1,8 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Configs.GameEvents
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Configs.GameEvents
 {
     using System;
     using System.Collections.Generic;
-    using TheOneStudio.UITemplate.UITemplate.Utils;
+    using HyperGames.UnityTemplate.UnityTemplate.Utils;
 
     [Serializable]
     public class GameEventRacingConfig

@@ -1,8 +1,8 @@
 ﻿#if GDK_ZENJECT
-namespace TheOneStudio.UITemplate.UITemplate.Services.Permissions
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.Permissions
 {
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Services.Permissions.Signals;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.Permissions.Signals;
     using Zenject;
 
     public class PermissionServiceInstaller : Installer<PermissionServiceInstaller>

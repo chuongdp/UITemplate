@@ -1,5 +1,5 @@
-#if UNITY_IOS && THEONE_STORE_RATING
-namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
+#if UNITY_IOS && HYPERGAMES_STORE_RATING
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating
 {
     using Cysharp.Threading.Tasks;
     using UnityEngine.iOS;

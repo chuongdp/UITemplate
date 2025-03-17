@@ -1,16 +1,19 @@
-﻿namespace TheOneStudio.HyperCasual.Quests.Conditions
+﻿namespace HyperGames.HyperCasual.Quests.Conditions
 {
     using System;
     using GameFoundation.Signals;
+    using HyperGames.UnityTemplate.Quests.Conditions;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.Quests.Conditions;
     using UnityEngine.Scripting;
 
     public abstract class BaseSignalCountCondition<TSignal> : BaseCondition
     {
         [JsonProperty] private int Count { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress

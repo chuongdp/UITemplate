@@ -1,9 +1,9 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace TheOneStudio.DeepLinking
+namespace HyperGames.DeepLinking
 {
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Services.DeepLinking;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.DeepLinking;
     using VContainer;
 
     public static class DeepLinkServiceVContainer

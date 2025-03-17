@@ -1,10 +1,10 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace TheOneStudio.Permission
+namespace HyperGames.Permission
 {
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Services.Permissions;
-    using TheOneStudio.UITemplate.UITemplate.Services.Permissions.Signals;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.Permissions;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.Permissions.Signals;
     using VContainer;
 
     public static class PermissionServiceVContainer

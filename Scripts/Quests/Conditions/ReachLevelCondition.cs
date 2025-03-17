@@ -1,8 +1,9 @@
-namespace TheOneStudio.UITemplate.Quests.Conditions
+namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
+    using HyperGames.UnityTemplate.Scripts.Models.Controllers;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
     using UnityEngine.Scripting;
 
     [Preserve]
@@ -10,7 +11,10 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
     {
         [JsonProperty] private int Level { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress
@@ -19,10 +23,10 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
 
             private sealed class Handler : BaseHandler<ReachLevelCondition, Progress>
             {
-                private readonly UITemplateLevelDataController levelDataController;
+                private readonly UnityTemplateLevelDataController levelDataController;
 
                 [Preserve]
-                public Handler(UITemplateLevelDataController levelDataController)
+                public Handler(UnityTemplateLevelDataController levelDataController)
                 {
                     this.levelDataController = levelDataController;
                 }

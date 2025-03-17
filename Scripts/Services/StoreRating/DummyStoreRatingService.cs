@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating
 {
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.Utilities.LogService;
@@ -14,7 +14,10 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
         #endregion
 
         [Preserve]
-        public DummyStoreRatingService(ILogService logService) { this.logService = logService; }
+        public DummyStoreRatingService(ILogService logService)
+        {
+            this.logService = logService;
+        }
 
         public UniTask LaunchStoreRating()
         {

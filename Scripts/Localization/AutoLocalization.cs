@@ -1,5 +1,5 @@
-#if THEONE_LOCALIZATION
-namespace TheOneStudio.UITemplate.UITemplate
+#if HYPERGAMES_LOCALIZATION
+namespace HyperGames.UnityTemplate.UnityTemplate
 {
     using UnityEngine;
     using UnityEngine.Localization.Components;

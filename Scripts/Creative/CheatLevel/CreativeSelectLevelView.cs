@@ -1,8 +1,9 @@
-namespace TheOneStudio.UITemplate.UITemplate.Creative.CheatLevel
+namespace HyperGames.UnityTemplate.UnityTemplate.Creative.CheatLevel
 {
     using GameFoundation.DI;
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
+    using HyperGames.UnityTemplate.Scripts.Models.Controllers;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
     using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
@@ -12,20 +13,23 @@ namespace TheOneStudio.UITemplate.UITemplate.Creative.CheatLevel
         public TMP_InputField inputField;
         public Button         btnSubmit;
 
-        private void Awake() { this.btnSubmit.onClick.AddListener(this.OnSubmit); }
+        private void Awake()
+        {
+            this.btnSubmit.onClick.AddListener(this.OnSubmit);
+        }
 
         private void OnEnable()
         {
-#if !CREATIVE
+            #if !CREATIVE
             this.gameObject.SetActive(false);
-#endif
+            #endif
         }
 
         private void OnSubmit()
         {
             if (!int.TryParse(this.inputField.text, out var level)) return;
 
-            this.GetCurrentContainer().Resolve<UITemplateLevelDataController>().SelectLevel(level);
+            this.GetCurrentContainer().Resolve<UnityTemplateLevelDataController>().SelectLevel(level);
             this.GetCurrentContainer().Resolve<SignalBus>().Fire(new ChangeLevelCreativeSignal(level));
         }
     }

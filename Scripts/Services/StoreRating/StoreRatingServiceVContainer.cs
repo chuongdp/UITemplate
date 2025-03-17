@@ -1,22 +1,22 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace TheOneStudio.StoreRating
+namespace HyperGames.StoreRating
 {
-    using TheOneStudio.UITemplate.UITemplate.Services.StoreRating;
+    using HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating;
     using VContainer;
 
     public static class StoreRatingServiceVContainer
     {
         public static void RegisterStoreRatingService(this IContainerBuilder builder)
         {
-            #if !UNITY_EDITOR && UNITY_ANDROID && THEONE_STORE_RATING
+            #if !UNITY_EDITOR && UNITY_ANDROID && HYPERGAMES_STORE_RATING
             builder.Register<AndroidStoreRatingService>(Lifetime.Singleton).AsImplementedInterfaces();
-            #elif !UNITY_EDITOR && UNITY_IOS && THEONE_STORE_RATING
+            #elif !UNITY_EDITOR && UNITY_IOS && HYPERGAMES_STORE_RATING
             builder.Register<IosStoreRatingService>(Lifetime.Singleton).AsImplementedInterfaces();
             #else
             builder.Register<DummyStoreRatingService>(Lifetime.Singleton).AsImplementedInterfaces();
             #endif
-            builder.Register<UITemplateStoreRatingHandler>(Lifetime.Singleton);
+            builder.Register<UnityTemplateStoreRatingHandler>(Lifetime.Singleton);
         }
     }
 }

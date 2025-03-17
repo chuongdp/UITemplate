@@ -1,19 +1,20 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Scenes.Main.Collection.Base
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Main.Collection.Base
 {
     using System;
     using GameFoundation.Scripts.AssetLibrary;
     using GameFoundation.Scripts.UIModule.MVP;
-    using TheOneStudio.UITemplate.UITemplate.Models;
+    using HyperGames.UnityTemplate.UnityTemplate.Models;
+    using HyperGames.UnityTemplate.Scripts.Models.Core.Element;
     using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
 
     public abstract class BaseItemCollectionModel
     {
-        public int                Index              { get; set; }
-        public UITemplateItemData UITemplateItemInventoryData { get; set; }
-        public string             Category           { get; set; }
-        public Action             OnNotEnoughMoney   { get; set; }
+        public int                Index                       { get; set; }
+        public UnityTemplateItemData UnityTemplateItemInventoryData { get; set; }
+        public string             Category                    { get; set; }
+        public Action             OnNotEnoughMoney            { get; set; }
     }
 
     public abstract class BaseItemCollectionView : TViewMono

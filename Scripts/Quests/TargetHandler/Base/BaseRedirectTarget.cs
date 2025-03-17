@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.Quests.TargetHandler
+﻿namespace HyperGames.UnityTemplate.Quests.TargetHandler
 {
     using System;
     using Cysharp.Threading.Tasks;
@@ -13,10 +13,7 @@
 
             public abstract UniTask Handle();
 
-            IRedirectTarget IRedirectTarget.IHandler.RedirectTarget
-            {
-                set => this.RedirectTarget = (T)value;
-            }
+            IRedirectTarget IRedirectTarget.IHandler.RedirectTarget { set => this.RedirectTarget = (T)value; }
         }
     }
 }

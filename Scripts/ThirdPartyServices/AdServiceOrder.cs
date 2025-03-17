@@ -1,5 +1,5 @@
 #nullable enable
-namespace TheOneStudio.UITemplate.UITemplate.Scripts.ThirdPartyServices
+namespace HyperGames.UnityTemplate.UnityTemplate.Scripts.ThirdPartyServices
 {
     using System;
     using Core.AdsServices;

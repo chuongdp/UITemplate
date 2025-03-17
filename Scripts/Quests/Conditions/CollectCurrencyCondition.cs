@@ -1,9 +1,9 @@
-namespace TheOneStudio.UITemplate.Quests.Conditions
+namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
     using GameFoundation.Signals;
+    using HyperGames.UnityTemplate.UnityTemplate.Signals;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.UITemplate.Signals;
     using UnityEngine.Scripting;
 
     [Preserve]
@@ -12,7 +12,10 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
         [JsonProperty] private string CurrencyId { get; [Preserve] set; }
         [JsonProperty] private int    Count      { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress

@@ -1,9 +1,12 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.FTUE.Signal
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.Signal
 {
     public class FTUETriggerSignal
     {
         public string StepId { get; set; }
 
-        public FTUETriggerSignal(string stepId) { this.StepId = stepId; }
+        public FTUETriggerSignal(string stepId)
+        {
+            this.StepId = stepId;
+        }
     }
 }

@@ -1,0 +1,60 @@
+#if GDK_ZENJECT
+namespace HyperGames.UnityTemplate.UnityTemplate.Installers
+{
+    using Core.AnalyticServices;
+    using Core.AnalyticServices.Data;
+    using GameFoundation.Scripts.Utilities.Extension;
+    using ServiceImplementation.AdsServices;
+    using ServiceImplementation.Configs;
+    using ServiceImplementation.FirebaseAnalyticTracker;
+    using ServiceImplementation.FireBaseRemoteConfig;
+    using HyperGames.UnityTemplate.UnityTemplate.Configs.GameEvents;
+    using HyperGames.UnityTemplate.UnityTemplate.ThirdPartyServices.AnalyticEvents;
+    using UnityEngine;
+    using Zenject;
+#if !FIREBASE_REMOTE_CONFIG
+    using HyperGames.UnityTemplate.UnityTemplate.Interfaces;
+    using HyperGames.UnityTemplate.UnityTemplate.Scripts.Services;
+
+#elif FIREBASE_REMOTE_CONFIG
+    using HyperGames.UnityTemplate.UnityTemplate.Services;
+#endif
+
+#if APPSFLYER
+    using ServiceImplementation.AppsflyerAnalyticTracker;
+#endif
+
+    public class UnityTemplateThirdPartyInstaller : Installer<UnityTemplateThirdPartyInstaller>
+    {
+        public override void InstallBindings()
+        {
+            //Third party service
+            AdServiceInstaller.Install(this.Container);
+            AnalyticServicesInstaller.Install(this.Container);
+            RemoteConfigInstaller.Install(this.Container);
+            var thirdPartiesConfig = Resources.Load<ThirdPartiesConfig>(ThirdPartiesConfig.ResourcePath);
+            this.Container.Bind<ThirdPartiesConfig>().FromInstance(thirdPartiesConfig).AsSingle();
+
+            //Remove config
+            var remoteConfigSetting = Resources.Load<RemoteConfigSetting>(RemoteConfigSetting.ResourcePath);
+            this.Container.Bind<RemoteConfigSetting>().FromInstance(remoteConfigSetting).AsSingle();
+
+            //Game event config
+            var gameFeaturesSetting = Resources.Load<GameFeaturesSetting>(GameFeaturesSetting.ResourcePath);
+            this.Container.Bind<GameFeaturesSetting>().FromInstance(gameFeaturesSetting).AsSingle();
+
+            this.Container.BindInterfacesAndSelfToAllTypeDriveFrom<BaseAnalyticEventFactory>();
+            var listFactory = this.Container.ResolveAll<IAnalyticEventFactory>();
+
+            if (listFactory.Count > 0)
+            {
+                var analyticFactory = listFactory[0];
+                this.Container.Bind<AnalyticsEventCustomizationConfig>().FromInstance(analyticFactory.FireBaseAnalyticsEventCustomizationConfig).WhenInjectedInto<FirebaseAnalyticTracker>();
+#if APPSFLYER
+                this.Container.Bind<AnalyticsEventCustomizationConfig>().FromInstance(analyticFactory.AppsFlyerAnalyticsEventCustomizationConfig).WhenInjectedInto<AppsflyerTracker>();
+#endif
+            }
+        }
+    }
+}
+#endif

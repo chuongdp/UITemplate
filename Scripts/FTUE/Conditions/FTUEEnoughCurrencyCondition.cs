@@ -1,6 +1,6 @@
-namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
+namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.Conditions
 {
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
 
     public class FTUEEnoughCurrencyContidionModel
     {
@@ -13,21 +13,22 @@ namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
     {
         #region inject
 
-        private readonly UITemplateInventoryDataController uiTemplateInventoryDataController;
-        private readonly UITemplateFTUEHelper              uiTemplateFtueHelper;
+        private readonly UnityTemplateInventoryDataController UnityTemplateInventoryDataController;
+        private readonly UnityTemplateFTUEHelper              UnityTemplateFtueHelper;
 
         #endregion
 
-        public FTUEEnoughCurrencyCondition(UITemplateInventoryDataController uiTemplateInventoryDataController, UITemplateFTUEHelper uiTemplateFtueHelper)
+        public FTUEEnoughCurrencyCondition(UnityTemplateInventoryDataController UnityTemplateInventoryDataController, UnityTemplateFTUEHelper UnityTemplateFtueHelper)
         {
-            this.uiTemplateInventoryDataController = uiTemplateInventoryDataController;
-            this.uiTemplateFtueHelper              = uiTemplateFtueHelper;
+            this.UnityTemplateInventoryDataController = UnityTemplateInventoryDataController;
+            this.UnityTemplateFtueHelper              = UnityTemplateFtueHelper;
         }
 
         public override string Id => "enough_currency";
+
         protected override bool IsPassedCondition(FTUEEnoughCurrencyContidionModel data)
         {
-            return this.uiTemplateFtueHelper.CompareIntWithCondition(this.uiTemplateInventoryDataController.GetCurrencyValue(data.Id), data.Value, data.Condition);
+            return this.UnityTemplateFtueHelper.CompareIntWithCondition(this.UnityTemplateInventoryDataController.GetCurrencyValue(data.Id), data.Value, data.Condition);
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿namespace TheOneStudio.UITemplate.Quests.TargetHandler
+﻿namespace HyperGames.UnityTemplate.Quests.TargetHandler
 {
     using System;
     using System.Linq;
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.Utilities.Extension;
+    using HyperGames.HyperCasual.Others.StateMachine.Interface;
+    using HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Interface;
     using Newtonsoft.Json;
-    using TheOneStudio.HyperCasual.Others.StateMachine.Interface;
-    using TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Interface;
     using UnityEngine.Scripting;
 
     [Preserve]

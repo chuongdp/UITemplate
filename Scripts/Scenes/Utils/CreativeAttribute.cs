@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Scenes.Utils
+namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Utils
 {
     using System;
 

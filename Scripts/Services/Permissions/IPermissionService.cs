@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.Permissions
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.Permissions
 {
     using Cysharp.Threading.Tasks;
 

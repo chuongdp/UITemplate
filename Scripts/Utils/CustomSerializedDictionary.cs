@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Utils
+namespace HyperGames.UnityTemplate.UnityTemplate.Utils
 {
     using System;
     using System.Collections.Generic;
@@ -35,12 +35,12 @@ namespace TheOneStudio.UITemplate.UITemplate.Utils
             this.currencyIdToRewardValue.Clear();
         }
     }
-    
+
     [Serializable]
     public class StringToButtonDictionary : SerializableDictionary<string, Button>
     {
     }
-    
+
     [Serializable]
     public class StringToIntDictionary : SerializableDictionary<string, int>
     {

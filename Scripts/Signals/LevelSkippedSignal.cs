@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Signals
+namespace HyperGames.UnityTemplate.UnityTemplate.Signals
 {
     public class LevelSkippedSignal
     {

@@ -1,6 +1,7 @@
-namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
+namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.Conditions
 {
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
+    using HyperGames.UnityTemplate.Scripts.Models.Controllers;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
 
     public class FTUEPassedLevelConditionModel
     {
@@ -11,17 +12,20 @@ namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
     {
         #region inject
 
-        private readonly UITemplateLevelDataController uiTemplateLevelDataController;
+        private readonly UnityTemplateLevelDataController UnityTemplateLevelDataController;
 
         #endregion
 
-        public FTUEPassedLevelCondition(UITemplateLevelDataController uiTemplateLevelDataController)
+        public FTUEPassedLevelCondition(UnityTemplateLevelDataController UnityTemplateLevelDataController)
         {
-            this.uiTemplateLevelDataController = uiTemplateLevelDataController;
+            this.UnityTemplateLevelDataController = UnityTemplateLevelDataController;
         }
 
         public override string Id => "passed_level";
 
-        protected override bool IsPassedCondition(FTUEPassedLevelConditionModel data) => this.uiTemplateLevelDataController.CurrentLevel >= data.Level;
+        protected override bool IsPassedCondition(FTUEPassedLevelConditionModel data)
+        {
+            return this.UnityTemplateLevelDataController.CurrentLevel >= data.Level;
+        }
     }
 }

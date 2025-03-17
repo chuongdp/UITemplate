@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services
+namespace HyperGames.UnityTemplate.UnityTemplate.Services
 {
     using System;
     using Cysharp.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace TheOneStudio.UITemplate.UITemplate.Services
         UniTask CheckPermission();
         void    SetUpNotification();
         void    CancelNotification();
-        void    SendNotification(string title, string body, DateTime fireTime, TimeSpan delayTime);
+        void    SendNotification(string        title,          string    body, DateTime fireTime, TimeSpan delayTime);
         void    SetupCustomNotification(string notificationId, TimeSpan? delayTime = null);
     }
 }

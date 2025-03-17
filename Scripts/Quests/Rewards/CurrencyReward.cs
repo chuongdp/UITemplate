@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.Quests.Rewards
+namespace HyperGames.UnityTemplate.Quests.Rewards
 {
     using UnityEngine.Scripting;
 

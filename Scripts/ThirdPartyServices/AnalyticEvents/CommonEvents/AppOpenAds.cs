@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.ThirdPartyServices.AnalyticEvents.CommonEvents
+namespace HyperGames.UnityTemplate.UnityTemplate.ThirdPartyServices.AnalyticEvents.CommonEvents
 {
     using Core.AnalyticServices.Data;
 

@@ -1,10 +1,10 @@
-﻿#if THEONE_HIGHSCORE
-namespace TheOneStudio.UITemplate.Quests.Conditions
+﻿#if HYPERGAMES_HIGHSCORE
+namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
     using Newtonsoft.Json;
-    using TheOneStudio.HighScore;
-    using TheOneStudio.HighScore.Models;
+    using HyperGames.HighScore;
+    using HyperGames.HighScore.Models;
     using UnityEngine.Scripting;
 
     [Preserve]

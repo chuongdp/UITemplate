@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services.DeepLinking
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.DeepLinking
 {
     using GameFoundation.DI;
     using GameFoundation.Signals;
@@ -12,7 +12,10 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.DeepLinking
         private readonly SignalBus signalBus;
 
         [Preserve]
-        public DeepLinkService(SignalBus signalBus) { this.signalBus = signalBus; }
+        public DeepLinkService(SignalBus signalBus)
+        {
+            this.signalBus = signalBus;
+        }
 
         #endregion
 
@@ -22,16 +25,13 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.DeepLinking
             Application.deepLinkActivated += this.OnDeepLinkActivated;
 
             // if application not installs and opened from deep link
-            if (!string.IsNullOrEmpty(Application.absoluteURL))
-            {
-                this.OnDeepLinkActivated(Application.absoluteURL);
-            }
+            if (!string.IsNullOrEmpty(Application.absoluteURL)) this.OnDeepLinkActivated(Application.absoluteURL);
         }
 
         private void OnDeepLinkActivated(string url)
         {
             this.signalBus.Fire(new OnDeepLinkActiveSignal(url));
-            Debug.Log($"onelog OnDeepLinkActivated: {url}");
+            Debug.Log($"mirailog OnDeepLinkActivated: {url}");
         }
     }
 }

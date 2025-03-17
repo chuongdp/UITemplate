@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.Quests.TargetHandler
+﻿namespace HyperGames.UnityTemplate.Quests.TargetHandler
 {
     using System;
     using System.Linq;

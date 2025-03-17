@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Scenes.BottomBarNavigator
+namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.BottomBarNavigator
 {
     using DG.Tweening;
     using TMPro;

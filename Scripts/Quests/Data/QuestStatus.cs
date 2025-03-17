@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.Quests.Data
+﻿namespace HyperGames.UnityTemplate.Quests.Data
 {
     using System;
 

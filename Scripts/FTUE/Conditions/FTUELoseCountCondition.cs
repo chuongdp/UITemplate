@@ -1,6 +1,7 @@
-namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
+namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.Conditions
 {
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
+    using HyperGames.UnityTemplate.Scripts.Models.Controllers;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
 
     public class FTUELoseCountModel
     {
@@ -11,14 +12,20 @@ namespace TheOneStudio.UITemplate.UITemplate.FTUE.Conditions
     {
         #region inject
 
-        private readonly UITemplateLevelDataController uiTemplateLevelDataController;
+        private readonly UnityTemplateLevelDataController UnityTemplateLevelDataController;
 
         #endregion
 
-        public override string   Id => "lose_count";
+        public override string Id => "lose_count";
 
-        public FTUELoseCountCondition(UITemplateLevelDataController uiTemplateLevelDataController) { this.uiTemplateLevelDataController = uiTemplateLevelDataController; }
+        public FTUELoseCountCondition(UnityTemplateLevelDataController UnityTemplateLevelDataController)
+        {
+            this.UnityTemplateLevelDataController = UnityTemplateLevelDataController;
+        }
 
-        protected override bool IsPassedCondition(FTUELoseCountModel data) { return this.uiTemplateLevelDataController.TotalLose == data.Count; }
+        protected override bool IsPassedCondition(FTUELoseCountModel data)
+        {
+            return this.UnityTemplateLevelDataController.TotalLose == data.Count;
+        }
     }
 }

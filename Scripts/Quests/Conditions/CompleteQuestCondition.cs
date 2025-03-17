@@ -1,8 +1,8 @@
-namespace TheOneStudio.UITemplate.Quests.Conditions
+namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
+    using HyperGames.UnityTemplate.Quests.Data;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.Quests.Data;
     using UnityEngine.Scripting;
 
     [Preserve]
@@ -10,7 +10,10 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
     {
         [JsonProperty] private string QuestId { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress
@@ -19,10 +22,10 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
 
             private sealed class Handler : BaseHandler<CompleteQuestCondition, Progress>
             {
-                private readonly UITemplateQuestManager questManager;
+                private readonly UnityTemplateQuestManager questManager;
 
                 [Preserve]
-                public Handler(UITemplateQuestManager questManager)
+                public Handler(UnityTemplateQuestManager questManager)
                 {
                     this.questManager = questManager;
                 }
@@ -30,7 +33,7 @@ namespace TheOneStudio.UITemplate.Quests.Conditions
                 protected override float CurrentProgress => this.otherQuest.Progress.Status.HasFlag(QuestStatus.Completed) ? 1f : 0f;
                 protected override float MaxProgress     => 1f;
 
-                private UITemplateQuestController otherQuest;
+                private UnityTemplateQuestController otherQuest;
 
                 protected override void Initialize()
                 {

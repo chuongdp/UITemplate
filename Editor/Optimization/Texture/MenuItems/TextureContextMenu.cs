@@ -1,4 +1,4 @@
-namespace TheOne.Tool.Optimization.Texture.MenuItems
+namespace HyperGames.Tool.Optimization.Texture.MenuItems
 {
     using System.Collections.Generic;
     using UnityEditor;
@@ -6,14 +6,14 @@ namespace TheOne.Tool.Optimization.Texture.MenuItems
 
     public static class TextureContextMenu
     {
-        [MenuItem("Assets/TheOne/TinyPNG Compress", true)]
+        [MenuItem("Assets/HyperGames/TinyPNG Compress", true)]
         private static bool ValidateCompressTextures()
         {
             // This method returns true if the selected object is a Texture2D, enabling the menu item
             return Selection.activeObject is Texture;
         }
 
-        [MenuItem("Assets/TheOne/TinyPNG Compress")]
+        [MenuItem("Assets/HyperGames/TinyPNG Compress")]
         private static void CompressTextures()
         {
             var filePaths = new List<string>();

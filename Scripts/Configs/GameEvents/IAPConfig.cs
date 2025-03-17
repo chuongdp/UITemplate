@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Configs.GameEvents
+namespace HyperGames.UnityTemplate.UnityTemplate.Configs.GameEvents
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@ namespace TheOneStudio.UITemplate.UITemplate.Configs.GameEvents
     public class IAPConfig
     {
         public string removeAdsProductId;
-        
-        public Dictionary<string,string> productIds;
+
+        public Dictionary<string, string> productIds;
     }
 }

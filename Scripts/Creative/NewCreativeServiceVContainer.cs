@@ -1,9 +1,9 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace TheOneStudio.UITemplate.UITemplate.Creative.Cheat
+namespace HyperGames.UnityTemplate.UnityTemplate.Creative.Cheat
 {
     using GameFoundation.DI;
-    using TheOneStudio.UITemplate.UITemplate.Scripts.Services;
+    using HyperGames.UnityTemplate.UnityTemplate.Scripts.Services;
     using VContainer;
 
     public static class NewCreativeServiceVContainer
@@ -13,8 +13,8 @@ namespace TheOneStudio.UITemplate.UITemplate.Creative.Cheat
             #if !CREATIVE
             return;
             #endif
-            builder.Register<NewCreativeService>(Lifetime.Singleton).AsInterfacesAndSelf();
-            builder.RegisterBuildCallback(container => container.Resolve<CreativeService>().DisableTripleTap());
+            // builder.Register<NewCreativeService>(Lifetime.Singleton).AsInterfacesAndSelf();
+            // builder.RegisterBuildCallback(container => container.Resolve<CreativeService>().DisableTripleTap());
         }
     }
 }

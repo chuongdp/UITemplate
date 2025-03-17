@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Scripts.Services.Highlight
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Scripts.Services.Highlight
 {
     using UnityEngine;
 

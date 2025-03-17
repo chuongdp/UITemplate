@@ -1,5 +1,5 @@
 #if GDK_ZENJECT
-namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating
 {
     using Zenject;
 
@@ -7,14 +7,14 @@ namespace TheOneStudio.UITemplate.UITemplate.Services.StoreRating
     {
         public override void InstallBindings()
         {
-#if !UNITY_EDITOR && UNITY_ANDROID && THEONE_STORE_RATING
+#if !UNITY_EDITOR && UNITY_ANDROID && HYPERGAMES_STORE_RATING
             this.Container.Bind<IStoreRatingService>().To<AndroidStoreRatingService>().AsSingle().NonLazy();
-#elif !UNITY_EDITOR && UNITY_IOS && THEONE_STORE_RATING
+#elif !UNITY_EDITOR && UNITY_IOS && HYPERGAMES_STORE_RATING
             this.Container.Bind<IStoreRatingService>().To<IosStoreRatingService>().AsSingle().NonLazy();
 #else
             this.Container.Bind<IStoreRatingService>().To<DummyStoreRatingService>().AsSingle().NonLazy();
 #endif
-            this.Container.Bind<UITemplateStoreRatingHandler>().AsSingle().NonLazy();
+            this.Container.Bind<UnityTemplateStoreRatingHandler>().AsSingle().NonLazy();
         }
     }
 }

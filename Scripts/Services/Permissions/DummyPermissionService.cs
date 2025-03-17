@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.Permissions
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.Permissions
 {
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.Utilities.LogService;
@@ -14,13 +14,15 @@
 
         protected override async UniTask<bool> InternalRequestPermission(PermissionRequest request)
         {
-            this.LOGService.Log($"oneLog: DummyPermissionService InternalRequestPermission: {request}");
+            this.LOGService.Log($"mirailog: DummyPermissionService InternalRequestPermission: {request}");
+            await UniTask.CompletedTask;
             return false;
         }
 
         protected override async UniTask<bool> InternalRequestNotificationPermission()
         {
-            this.LOGService.Log($"oneLog: DummyPermissionService InternalRequestNotificationPermission");
+            this.LOGService.Log($"mirailog: DummyPermissionService InternalRequestNotificationPermission");
+            await UniTask.CompletedTask;
             return false;
         }
     }

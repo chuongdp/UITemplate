@@ -1,8 +1,8 @@
-﻿namespace TheOneStudio.UITemplate.Quests.Conditions
+﻿namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
+    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.UITemplate.Models.Controllers;
     using UnityEngine.Scripting;
 
     [Preserve]
@@ -10,7 +10,10 @@
     {
         [JsonProperty] private int Count { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress
@@ -21,10 +24,10 @@
 
             private sealed class Handler : BaseHandler<WatchAdCountCondition, Progress>
             {
-                private readonly UITemplateAdsController adsDataController;
+                private readonly UnityTemplateAdsController adsDataController;
 
                 [Preserve]
-                public Handler(UITemplateAdsController adsDataController)
+                public Handler(UnityTemplateAdsController adsDataController)
                 {
                     this.adsDataController = adsDataController;
                 }

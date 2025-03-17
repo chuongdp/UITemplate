@@ -1,8 +1,8 @@
 ﻿#if GDK_ZENJECT
-namespace TheOneStudio.UITemplate.UITemplate.Creative
+namespace HyperGames.UnityTemplate.UnityTemplate.Creative
 {
-    using TheOneStudio.UITemplate.UITemplate.Creative.CheatLevel;
-    using TheOneStudio.UITemplate.UITemplate.Scripts.Services;
+    using HyperGames.UnityTemplate.UnityTemplate.Creative.CheatLevel;
+    using HyperGames.UnityTemplate.UnityTemplate.Scripts.Services;
     using Zenject;
 
     public class NewCreativeServiceInstaller : Installer<NewCreativeServiceInstaller>

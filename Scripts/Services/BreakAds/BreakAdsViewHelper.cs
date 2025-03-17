@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.BreakAds
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.BreakAds
 {
     using System;
     using System.Threading;
@@ -16,9 +16,11 @@
 
         protected readonly SignalBus SignalBus;
 
-
         [Preserve]
-        public BreakAdsViewHelper(SignalBus signalBus) { this.SignalBus = signalBus; }
+        public BreakAdsViewHelper(SignalBus signalBus)
+        {
+            this.SignalBus = signalBus;
+        }
 
         public virtual void OnViewReady(BreakAdsPopupView view, BreakAdsPopupPresenter breakAdsPopupPresenter)
         {
@@ -26,12 +28,13 @@
             this.BreakAdsPopupPresenter = breakAdsPopupPresenter;
         }
 
-        public virtual async UniTask BindData()
+        public virtual UniTask BindData()
         {
             this.SignalBus.Subscribe<InterstitialAdClosedSignal>(this.BreakAdsPopupPresenter.CloseView);
             this.SignalBus.Subscribe<InterstitialAdDisplayedFailedSignal>(this.BreakAdsPopupPresenter.CloseView);
             this.SignalBus.Subscribe<InterstitialAdDisplayedSignal>(this.BreakAdsPopupPresenter.CloseView);
             this.AutomaticCloseView();
+            return UniTask.CompletedTask;
         }
 
         private async void AutomaticCloseView()
@@ -39,11 +42,11 @@
             try
             {
                 this.Cts?.Cancel();
-                this.Cts = new CancellationTokenSource();
+                this.Cts = new();
                 await UniTask.Delay(TimeSpan.FromSeconds(2), cancellationToken: this.Cts.Token);
                 this.BreakAdsPopupPresenter.CloseView();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // ignored
             }

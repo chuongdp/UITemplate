@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Scenes.Main.Collection.Elements
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Main.Collection.Elements
 {
     using GameFoundation.Scripts.UIModule.Adapter;
 

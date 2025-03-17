@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.Permissions.Signals
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.Permissions.Signals
 {
     public class OnRequestPermissionStartSignal
     {

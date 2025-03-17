@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.ThirdPartyServices.AnalyticEvents
+namespace HyperGames.UnityTemplate.UnityTemplate.ThirdPartyServices.AnalyticEvents
 {
     using Core.AnalyticServices.Data;
 
@@ -37,8 +37,8 @@ namespace TheOneStudio.UITemplate.UITemplate.ThirdPartyServices.AnalyticEvents
 
         IEvent RewardedVideoShow(int level, string place);
 
-        IEvent RewardedVideoShowFail(string place, string msg);
-        IEvent RewardedLoadFail(string place, string msg);
+        IEvent RewardedVideoShowFail(string   place, string msg);
+        IEvent RewardedLoadFail(string        place, string msg);
         IEvent RewardedVideoShowCompleted(int level, string place, bool isRewarded);
 
         IEvent RewardedVideoClick(string place);
@@ -81,8 +81,5 @@ namespace TheOneStudio.UITemplate.UITemplate.ThirdPartyServices.AnalyticEvents
         string                            RetentionDayProperty                       { get; }
         AnalyticsEventCustomizationConfig AppsFlyerAnalyticsEventCustomizationConfig { get; set; }
         AnalyticsEventCustomizationConfig FireBaseAnalyticsEventCustomizationConfig  { get; set; }
-#if BYTEBREW
-        AnalyticsEventCustomizationConfig ByteBrewAnalyticsEventCustomizationConfig { get; set; }
-#endif
     }
 }

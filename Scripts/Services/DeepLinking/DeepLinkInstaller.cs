@@ -1,5 +1,5 @@
 #if GDK_ZENJECT
-namespace TheOneStudio.UITemplate.UITemplate.Services.DeepLinking
+namespace HyperGames.UnityTemplate.UnityTemplate.Services.DeepLinking
 {
     using GameFoundation.Signals;
     using Zenject;

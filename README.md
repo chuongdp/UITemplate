@@ -1,2 +1,1 @@
-# UITemplate
-ChuongDP's UITemplate
+# ui-template

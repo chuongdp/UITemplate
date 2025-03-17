@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Services
+namespace HyperGames.UnityTemplate.UnityTemplate.Services
 {
     public class NotificationContent
     {

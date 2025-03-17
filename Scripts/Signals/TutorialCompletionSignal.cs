@@ -1,4 +1,4 @@
-namespace TheOneStudio.UITemplate.UITemplate.Scripts.Signals
+namespace HyperGames.UnityTemplate.UnityTemplate.Scripts.Signals
 {
     public class TutorialCompletionSignal
     {

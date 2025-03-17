@@ -1,4 +1,4 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Services.Permissions
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Services.Permissions
 {
     public enum PermissionRequest
     {
@@ -8,6 +8,6 @@
         FineLocation,
         CoarseLocation,
         ExternalStorageRead,
-        ExternalStorageWrite
+        ExternalStorageWrite,
     }
 }

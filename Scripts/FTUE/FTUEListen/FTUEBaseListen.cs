@@ -1,22 +1,26 @@
-namespace TheOneStudio.UITemplate.UITemplate.FTUE.FTUEListen
+namespace HyperGames.UnityTemplate.UnityTemplate.FTUE.FTUEListen
 {
     using GameFoundation.DI;
     using GameFoundation.Signals;
-    using TheOneStudio.UITemplate.UITemplate.Blueprints;
-    using TheOneStudio.UITemplate.UITemplate.FTUE.Signal;
+    using HyperGames.UnityTemplate.UnityTemplate.FTUE.Signal;
+    using HyperGames.UnityTemplate.Scripts.Blueprints;
 
     public abstract class FTUEBaseListen : IInitializable
     {
         protected readonly SignalBus               SignalBus;
-        protected readonly UITemplateFTUEBlueprint FtueBlueprint;
+        protected readonly UnityTemplateFTUEBlueprint FtueBlueprint;
 
-        protected FTUEBaseListen(SignalBus signalBus,UITemplateFTUEBlueprint ftueBlueprint)
+        protected FTUEBaseListen(SignalBus signalBus, UnityTemplateFTUEBlueprint ftueBlueprint)
         {
             this.SignalBus     = signalBus;
             this.FtueBlueprint = ftueBlueprint;
         }
 
-        public             void Initialize() { this.InitInternal(); }
+        public void Initialize()
+        {
+            this.InitInternal();
+        }
+
         protected abstract void InitInternal();
 
         protected void FireFtueTriggerSignal(string ftueId)

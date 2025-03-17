@@ -1,10 +1,10 @@
-﻿namespace TheOneStudio.UITemplate.Quests.Conditions
+﻿namespace HyperGames.UnityTemplate.Quests.Conditions
 {
     using System;
     using GameFoundation.Signals;
+    using HyperGames.UnityTemplate.Quests.Data;
+    using HyperGames.UnityTemplate.Quests.Signals;
     using Newtonsoft.Json;
-    using TheOneStudio.UITemplate.Quests.Data;
-    using TheOneStudio.UITemplate.Quests.Signals;
     using UnityEngine.Scripting;
 
     [Preserve]
@@ -13,7 +13,10 @@
         [JsonProperty] private string Tag   { get; [Preserve] set; }
         [JsonProperty] private int    Count { get; [Preserve] set; }
 
-        protected override ICondition.IProgress SetupProgress() => new Progress();
+        protected override ICondition.IProgress SetupProgress()
+        {
+            return new Progress();
+        }
 
         [Preserve]
         private sealed class Progress : BaseProgress

@@ -1,11 +1,14 @@
-﻿namespace TheOneStudio.UITemplate.UITemplate.Others.StateMachine.Signals
+﻿namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Signals
 {
-    using TheOneStudio.HyperCasual.Others.StateMachine.Interface;
+    using HyperGames.HyperCasual.Others.StateMachine.Interface;
 
     public class OnStateExitSignal
     {
         public IState State { get; }
 
-        public OnStateExitSignal(IState state) { this.State = state; }
+        public OnStateExitSignal(IState state)
+        {
+            this.State = state;
+        }
     }
 }

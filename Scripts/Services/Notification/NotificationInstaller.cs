@@ -1,5 +1,5 @@
 ﻿#if GDK_ZENJECT
-namespace TheOneStudio.UITemplate.UITemplate.Services
+namespace HyperGames.UnityTemplate.UnityTemplate.Services
 {
     using System;
     using Zenject;
@@ -8,9 +8,9 @@ namespace TheOneStudio.UITemplate.UITemplate.Services
     {
         public override void InstallBindings()
         {
-#if THEONE_NOTIFICATION && UNITY_ANDROID
+#if HYPERGAMES_NOTIFICATION && UNITY_ANDROID
             this.Container.Bind(typeof(INotificationService), typeof(IDisposable)).To<AndroidUnityNotificationService>().AsCached().NonLazy();
-#elif THEONE_NOTIFICATION && UNITY_IOS
+#elif HYPERGAMES_NOTIFICATION && UNITY_IOS
             this.Container.Bind(typeof(INotificationService), typeof(IDisposable)).To<IOSUnityNotificationService>().AsCached().NonLazy();
 #else
             this.Container.Bind<INotificationService>().To<DummyNotificationService>().AsCached().NonLazy();

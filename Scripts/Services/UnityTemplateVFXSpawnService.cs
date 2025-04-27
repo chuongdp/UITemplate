@@ -11,16 +11,13 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Services
 
     public class UnityTemplateVFXSpawnService
     {
-        public List<string> ListEncourageVFX = new() { "amazing", "perfect", "toohot", "youregood" };
-        public List<string> ListComboVFX     = new() { "x2", "x3", "x4" };
-
         private readonly IGameAssets gameAssets;
 
         [Preserve]
         public UnityTemplateVFXSpawnService(SignalBus signalBus, IGameAssets gameAssets) { this.gameAssets = gameAssets; }
 
-        public async void SpawnVFX(Transform target, Transform parent, List<string> listVFXKey,
-            bool randomPos, bool randomRotate = false, bool isFloat = false)
+        public async void SpawnVFX(Transform target,    Transform parent,               List<string> listVFXKey,
+                                   bool      randomPos, bool      randomRotate = false, bool         isFloat = false)
         {
             var randomIndex = Random.Range(0, listVFXKey.Count - 1);
             var vfxKey      = listVFXKey[randomIndex];
@@ -31,7 +28,7 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Services
             if (randomPos)
             {
                 position.x += Random.Range(-1f, 1f);
-                position.y += Random.Range(0f, 2f);
+                position.y += Random.Range(0f,  2f);
                 position.z =  -1;
             }
 
@@ -55,8 +52,8 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Services
             var vfxObj = parent != null ? vfxPrefab.Spawn(parent, position) : vfxPrefab.Spawn(position);
 
             return vfxObj;
-        }  
-        
+        }
+
         public async UniTask<GameObject> SpawnVFX(Vector3 target, Transform parent, List<string> listVFXKey)
         {
             var randomIndex = Random.Range(0, listVFXKey.Count - 1);
@@ -69,9 +66,5 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Services
 
             return vfxObj;
         }
-
-        public void SpawnEncourageVFX(Transform target) { this.SpawnVFX(target, null, this.ListEncourageVFX); }
-
-        public void SpawnComboVFX(Transform target) { this.SpawnVFX(target, null, this.ListComboVFX); }
     }
 }

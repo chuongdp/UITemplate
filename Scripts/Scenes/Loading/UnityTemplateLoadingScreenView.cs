@@ -4,9 +4,6 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
     using System.Diagnostics;
     using BlueprintFlow.BlueprintControlFlow;
     using BlueprintFlow.Signals;
-    using Core.AdsServices.Signals;
-    using Core.AnalyticServices;
-    using Core.AnalyticServices.CommonEvents;
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.AssetLibrary;
     using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
@@ -18,10 +15,7 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
     using GameFoundation.Scripts.Utilities.ObjectPool;
     using GameFoundation.Signals;
     using HyperGames.UnityTemplate.Scripts.Scenes.Utils;
-    using HyperGames.UnityTemplate.UnityTemplate.Scripts.ThirdPartyServices;
     using HyperGames.UnityTemplate.UnityTemplate.UserData;
-    using ServiceImplementation.Configs.Ads;
-    using HyperGames.UnityTemplate.UnityTemplate.Scenes.Utils;
     using TMPro;
     using UnityEngine;
     using UnityEngine.ResourceManagement.AsyncOperations;
@@ -45,19 +39,15 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
         private void Update()
         {
             this.visibleProgress = Mathf.Lerp(this.visibleProgress, this.Progress, Time.unscaledDeltaTime * 5f);
-            if (this.LoadingSlider is { })
-            {
-                this.LoadingSlider.value = this.visibleProgress;
-            }
-            if (this.loadingProgressTxt is { } && this.LoadingText is { })
-            {
-                this.loadingProgressTxt.text = string.Format(this.LoadingText, Mathf.RoundToInt(this.visibleProgress * 100));
-            }
+            if (this.LoadingSlider is not null) this.LoadingSlider.value = this.visibleProgress;
+
+            if (this.loadingProgressTxt is not null && this.LoadingText is not null) this.loadingProgressTxt.text = string.Format(this.LoadingText, Mathf.RoundToInt(this.visibleProgress * 100));
         }
 
         public UniTask CompleteLoading()
         {
             this.Progress = 1f;
+
             return UniTask.WaitUntil(() => this.visibleProgress >= .999f);
         }
     }
@@ -67,34 +57,25 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
     {
         #region Inject
 
-        protected readonly UnityTemplateAdServiceWrapper adService;
-        protected readonly BlueprintReaderManager     blueprintManager;
-        protected readonly UserDataManager            userDataManager;
-        protected readonly IGameAssets                gameAssets;
-        private readonly   ObjectPoolManager          objectPoolManager;
-        private readonly   UnityTemplateAdServiceWrapper UnityTemplateAdServiceWrapper;
-        private readonly   IAnalyticServices          analyticServices;
+        protected readonly BlueprintReaderManager blueprintManager;
+        protected readonly UserDataManager        userDataManager;
+        protected readonly IGameAssets            gameAssets;
+        private readonly   ObjectPoolManager      objectPoolManager;
 
         [Preserve]
         protected UnityTemplateLoadingScreenPresenter(
-            SignalBus                  signalBus,
-            ILogService                logger,
-            UnityTemplateAdServiceWrapper adService,
-            BlueprintReaderManager     blueprintManager,
-            UserDataManager            userDataManager,
-            IGameAssets                gameAssets,
-            ObjectPoolManager          objectPoolManager,
-            UnityTemplateAdServiceWrapper UnityTemplateAdServiceWrapper,
-            IAnalyticServices          analyticServices
+            SignalBus              signalBus,
+            ILogService            logger,
+            BlueprintReaderManager blueprintManager,
+            UserDataManager        userDataManager,
+            IGameAssets            gameAssets,
+            ObjectPoolManager      objectPoolManager
         ) : base(signalBus, logger)
         {
-            this.adService                  = adService;
-            this.blueprintManager           = blueprintManager;
-            this.userDataManager            = userDataManager;
-            this.gameAssets                 = gameAssets;
-            this.objectPoolManager          = objectPoolManager;
-            this.UnityTemplateAdServiceWrapper = UnityTemplateAdServiceWrapper;
-            this.analyticServices           = analyticServices;
+            this.blueprintManager  = blueprintManager;
+            this.userDataManager   = userDataManager;
+            this.gameAssets        = gameAssets;
+            this.objectPoolManager = objectPoolManager;
         }
 
         #endregion
@@ -105,10 +86,7 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
         /// Please fill loading text with format "Text {0}" where {0} is the value position."
         /// </summary>
         /// <param name="text"></param>
-        protected virtual string GetLoadingText()
-        {
-            return "Loading {0}%";
-        }
+        protected virtual string GetLoadingText() { return "Loading {0}%"; }
 
         private bool IsClosedFirstOpen { get; set; }
 
@@ -121,7 +99,8 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
             set
             {
                 this._loadingProgress = value;
-                if (value / this.loadingSteps <= this.View.Progress) return;
+
+                if (value                  / this.loadingSteps <= this.View.Progress) return;
                 this.View.Progress = value / this.loadingSteps;
             }
         }
@@ -137,11 +116,9 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
 
         public override UniTask BindData()
         {
-            this.ShowFirstBannerAd(BannerLoadStrategy.Instantiate);
-            this.SignalBus.Subscribe<AppOpenFullScreenContentClosedSignal>(this.OnAOAClosedHandler);
-            this.SignalBus.Subscribe<AppOpenFullScreenContentFailedSignal>(this.OnAOAClosedHandler);
+            this.ShowFirstBannerAd();
 
-            this.objectPoolContainer = new(nameof(this.objectPoolContainer));
+            this.objectPoolContainer = new GameObject(nameof(this.objectPoolContainer));
             Object.DontDestroyOnLoad(this.objectPoolContainer);
 
             this.LoadingProgress = 0f;
@@ -151,9 +128,9 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
             UniTask.WhenAll(
                 this.CreateObjectPool(AudioService.AudioSourceKey, 3),
                 this.Preload(),
-                #if ADMOB || APPLOVIN
-                //this.WaitForAoa(),
-                #endif
+#if ADMOB_IMPLEMENT || MAX_IMPLEMENT
+                this.ShowAoa(),
+#endif
                 UniTask.WhenAll(
                     this.LoadBlueprint().ContinueWith(this.OnBlueprintLoaded),
                     this.LoadUserData().ContinueWith(this.OnUserDataLoaded)
@@ -161,28 +138,8 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
             ).ContinueWith(this.OnLoadingCompleted).ContinueWith(this.LoadNextScene).Forget();
             stopWatch.Stop();
             Debug.Log("Game Loading Time: " + stopWatch.ElapsedMilliseconds + "ms");
-            this.analyticServices.Track(new CustomEvent()
-            {
-                EventName = "GameLoadingTime",
-                EventProperties = new()
-                {
-                    { "timeMilis", stopWatch.ElapsedMilliseconds },
-                },
-            });
 
             return UniTask.CompletedTask;
-        }
-
-        public override void Dispose()
-        {
-            base.Dispose();
-            this.SignalBus.Unsubscribe<AppOpenFullScreenContentClosedSignal>(this.OnAOAClosedHandler);
-            this.SignalBus.Unsubscribe<AppOpenFullScreenContentFailedSignal>(this.OnAOAClosedHandler);
-        }
-
-        private void OnAOAClosedHandler()
-        {
-            this.IsClosedFirstOpen = true;
         }
 
         protected virtual async UniTask LoadNextScene()
@@ -199,34 +156,17 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
 
             stopWatch.Stop();
             Debug.Log("Loading Main Scene Time: " + stopWatch.ElapsedMilliseconds + "ms");
-            this.analyticServices.Track(new CustomEvent()
-            {
-                EventName = "LoadingMainSceneTime",
-                EventProperties = new()
-                {
-                    { "timeMilis", stopWatch.ElapsedMilliseconds },
-                },
-            });
 
             Resources.UnloadUnusedAssets().ToUniTask().Forget();
-            this.ShowFirstBannerAd(BannerLoadStrategy.AfterLoading);
+            this.ShowFirstBannerAd();
             this.OnAfterLoading();
         }
 
-        protected virtual void ShowFirstBannerAd(BannerLoadStrategy strategy)
-        {
-            if (strategy != this.adService.BannerLoadStrategy) return;
-            this.adService.ShowBannerAd();
-        }
+        protected virtual void ShowFirstBannerAd() { }
 
-        protected virtual void OnAfterLoading()
-        {
-        }
+        protected virtual void OnAfterLoading() { }
 
-        protected virtual AsyncOperationHandle<SceneInstance> LoadSceneAsync()
-        {
-            return this.gameAssets.LoadSceneAsync(this.NextSceneName, LoadSceneMode.Single, false);
-        }
+        protected virtual AsyncOperationHandle<SceneInstance> LoadSceneAsync() { return this.gameAssets.LoadSceneAsync(this.NextSceneName, LoadSceneMode.Single, false); }
 
         private UniTask LoadBlueprint()
         {
@@ -236,46 +176,19 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
             return this.blueprintManager.LoadBlueprint();
         }
 
-        private UniTask LoadUserData()
-        {
-            return this.TrackProgress(this.userDataManager.LoadUserData());
-        }
+        private UniTask LoadUserData() { return this.TrackProgress(this.userDataManager.LoadUserData()); }
 
-        private UniTask WaitForAoa()
-        {
-            var startWaitingAoaTime = DateTime.Now;
+        protected virtual UniTask OnBlueprintLoaded() { return UniTask.CompletedTask; }
 
-            // sometimes AOA delay when shown, we need 0.5s to wait for it
-            return this.TrackProgress(UniTask.WaitUntil(() =>
-                (this.UnityTemplateAdServiceWrapper.IsOpenedAOAFirstOpen && this.IsClosedFirstOpen)
-                || (!this.UnityTemplateAdServiceWrapper.IsOpenedAOAFirstOpen && (DateTime.Now - startWaitingAoaTime).TotalSeconds > this.UnityTemplateAdServiceWrapper.LoadingTimeToShowAOA))
-            );
-        }
+        protected virtual UniTask OnUserDataLoaded() { return UniTask.CompletedTask; }
 
-        protected virtual UniTask OnBlueprintLoaded()
-        {
-            return UniTask.CompletedTask;
-        }
+        protected virtual UniTask OnBlueprintAndUserDataLoaded() { return UniTask.CompletedTask; }
 
-        protected virtual UniTask OnUserDataLoaded()
-        {
-            return UniTask.CompletedTask;
-        }
+        protected virtual UniTask OnLoadingCompleted() { return UniTask.CompletedTask; }
 
-        protected virtual UniTask OnBlueprintAndUserDataLoaded()
-        {
-            return UniTask.CompletedTask;
-        }
+        protected virtual UniTask Preload() { return UniTask.CompletedTask; }
 
-        protected virtual UniTask OnLoadingCompleted()
-        {
-            return UniTask.CompletedTask;
-        }
-
-        protected virtual UniTask Preload()
-        {
-            return UniTask.CompletedTask;
-        }
+        protected virtual UniTask ShowAoa() { return UniTask.CompletedTask; }
 
         protected UniTask PreloadAssets<T>(params object[] keys)
         {

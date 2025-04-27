@@ -9,7 +9,7 @@
         #region Inject
 
         private readonly UnityTemplateUserSettingData UnityTemplateUserSettingData;
-        private readonly SoundSetting              soundSetting;
+        private readonly SoundSetting                 soundSetting;
 
         #endregion
 
@@ -28,37 +28,21 @@
         public UnityTemplateSettingDataController(UnityTemplateUserSettingData UnityTemplateUserSettingData, SoundSetting soundSetting)
         {
             this.UnityTemplateUserSettingData = UnityTemplateUserSettingData;
-            this.soundSetting              = soundSetting;
+            this.soundSetting                 = soundSetting;
         }
 
-        public void SetSoundOnOff()
-        {
-            this.soundSetting.SoundValue.Value = this.IsSoundOn ? 0 : 1;
-        }
+        public void SetSoundOnOff() { this.soundSetting.SoundValue.Value = this.IsSoundOn ? 0 : 1; }
 
-        public void SetMusicOnOff()
-        {
-            this.soundSetting.MusicValue.Value = this.IsMusicOn ? 0 : 1;
-        }
+        public void SetMusicOnOff() { this.soundSetting.MusicValue.Value = this.IsMusicOn ? 0 : 1; }
 
-        public void SetMusicValue(float value)
-        {
-            this.soundSetting.MusicValue.Value = Math.Clamp(value, 0, 1);
-        }
+        public void SetMusicValue(float value) { this.soundSetting.MusicValue.Value = Math.Clamp(value, 0, 1); }
 
-        public void SetSoundValue(float value)
-        {
-            this.soundSetting.SoundValue.Value = Math.Clamp(value, 0, 1);
-        }
+        public void SetSoundValue(float value) { this.soundSetting.SoundValue.Value = Math.Clamp(value, 0, 1); }
 
-        public void SetVibrationOnOff()
-        {
-            this.UnityTemplateUserSettingData.IsVibrationEnable = !this.UnityTemplateUserSettingData.IsVibrationEnable;
-        }
+        public void SetVibrationValue(bool value) { this.UnityTemplateUserSettingData.IsVibrationEnable = value; }
 
-        public void SetFlashLightOnOff()
-        {
-            this.UnityTemplateUserSettingData.IsFlashLightEnable = !this.UnityTemplateUserSettingData.IsFlashLightEnable;
-        }
+        public void SetVibrationOnOff() { this.UnityTemplateUserSettingData.IsVibrationEnable = !this.UnityTemplateUserSettingData.IsVibrationEnable; }
+
+        public void SetFlashLightOnOff() { this.UnityTemplateUserSettingData.IsFlashLightEnable = !this.UnityTemplateUserSettingData.IsFlashLightEnable; }
     }
 }

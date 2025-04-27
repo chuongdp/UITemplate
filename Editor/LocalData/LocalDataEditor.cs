@@ -22,9 +22,7 @@ namespace UnityTemplate.Editor
 
         private static readonly JsonSerializerSettings JsonSetting = BaseHandleUserDataServices.JsonSetting;
 
-        [OdinSerialize]
-        [HideLabel]
-        [ListDrawerSettings(Expanded = true, ShowPaging = true, ShowItemCount = true, IsReadOnly = true, DraggableItems = false, NumberOfItemsPerPage = 5)]
+        [OdinSerialize] [HideLabel] [ListDrawerSettings(Expanded = true, ShowPaging = true, ShowItemCount = true, IsReadOnly = true, DraggableItems = false, NumberOfItemsPerPage = 5)]
         private List<ILocalData> localData;
 
         private Vector2 scrollPosition;
@@ -37,6 +35,7 @@ namespace UnityTemplate.Editor
             {
                 Debug.LogError("Sync with runtime only work in play mode");
                 this.localData = null;
+
                 return;
             }
 
@@ -80,11 +79,8 @@ namespace UnityTemplate.Editor
             Debug.LogError($"Clear Complete");
         }
 
-        [MenuItem("HyperGames/Local Data Editor")]
-        public static void ShowWindow()
-        {
-            GetWindow(typeof(LocalDataEditor));
-        }
+        [MenuItem("MIRAI/Local Data Editor")]
+        public static void ShowWindow() { GetWindow(typeof(LocalDataEditor)); }
 
         private static List<ILocalData> LoadAllLocalData()
         {

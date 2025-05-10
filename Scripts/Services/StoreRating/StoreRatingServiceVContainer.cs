@@ -2,7 +2,7 @@
 #nullable enable
 namespace HyperGames.StoreRating
 {
-    using HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating;
+    using GameTemplate.UnityTemplate.Services.StoreRating;
     using VContainer;
 
     public static class StoreRatingServiceVContainer

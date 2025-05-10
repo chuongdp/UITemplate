@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Interface
+namespace GameTemplate.UnityTemplate.Others.StateMachine.Interface
 {
     using System;
     using HyperGames.HyperCasual.Others.StateMachine.Interface;

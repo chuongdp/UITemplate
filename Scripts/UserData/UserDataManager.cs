@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.UserData
+namespace GameTemplate.UnityTemplate.UserData
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -9,7 +9,7 @@ namespace HyperGames.UnityTemplate.UnityTemplate.UserData
     using GameFoundation.Scripts.Utilities.Extension;
     using GameFoundation.Scripts.Utilities.UserData;
     using GameFoundation.Signals;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.LocalDatas;
+    using GameTemplate.UnityTemplate.Models.LocalDatas;
     using UnityEngine.Scripting;
 
     public class UserDataManager

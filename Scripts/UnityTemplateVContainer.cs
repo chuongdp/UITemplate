@@ -1,9 +1,7 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace HyperGames.UnityTemplate
+namespace GameTemplate
 {
-    using GameFoundation.DI;
-    using HyperGames.UnityTemplate.UnityTemplate.Services;
     using HyperGames.StoreRating;
     using UnityEngine;
     using VContainer;

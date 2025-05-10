@@ -1,9 +1,9 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace HyperGames.UnityTemplate
+namespace GameTemplate
 {
-    using HyperGames.UnityTemplate.UnityTemplate.Services;
-    using HyperGames.UnityTemplate.UnityTemplate.Services.Vibration;
+    using GameTemplate.UnityTemplate.Services;
+    using GameTemplate.UnityTemplate.Services.Vibration;
     using UnityEngine;
     using VContainer;
 

@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Services.Vibration
+namespace GameTemplate.UnityTemplate.Services.Vibration
 {
     public enum VibrationPresetType
     {

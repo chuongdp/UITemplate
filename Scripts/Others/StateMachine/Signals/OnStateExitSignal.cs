@@ -1,4 +1,4 @@
-﻿namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Signals
+﻿namespace GameTemplate.UnityTemplate.Others.StateMachine.Signals
 {
     using HyperGames.HyperCasual.Others.StateMachine.Interface;
 

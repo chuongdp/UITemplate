@@ -1,6 +1,6 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Interfaces
+namespace GameTemplate.UnityTemplate.Interfaces
 {
-    using HyperGames.UnityTemplate.UnityTemplate.Services.Vibration;
+    using GameTemplate.UnityTemplate.Services.Vibration;
 
     public interface IVibrationService
     {

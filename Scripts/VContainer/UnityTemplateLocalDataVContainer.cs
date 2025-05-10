@@ -1,12 +1,12 @@
 ﻿#if GDK_VCONTAINER
 #nullable enable
-namespace HyperGames.UnityTemplate
+namespace GameTemplate
 {
     using GameFoundation.DI;
     using GameFoundation.Scripts.Interfaces;
     using GameFoundation.Scripts.Utilities.Extension;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
-    using HyperGames.UnityTemplate.UnityTemplate.UserData;
+    using GameTemplate.UnityTemplate.Models.Controllers;
+    using GameTemplate.UnityTemplate.UserData;
     using VContainer;
 
     public static class UnityTemplateLocalDataVContainer

@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.Scripts.Scenes.Utils
+namespace GameTemplate.Scripts.Scenes.Utils
 {
     using System.Collections.Generic;
     using System.Reflection;

@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Models.LocalDatas
+namespace GameTemplate.UnityTemplate.Models.LocalDatas
 {
     using System;
 

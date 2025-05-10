@@ -1,9 +1,9 @@
-﻿namespace HyperGames.UnityTemplate.UnityTemplate.Models
+﻿namespace GameTemplate.UnityTemplate.Models
 {
     using System;
     using GameFoundation.Scripts.Interfaces;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.LocalDatas;
+    using GameTemplate.UnityTemplate.Models.Controllers;
+    using GameTemplate.UnityTemplate.Models.LocalDatas;
     using Sirenix.Serialization;
     using UnityEngine.Scripting;
 

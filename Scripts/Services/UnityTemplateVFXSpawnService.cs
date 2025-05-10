@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Services
+namespace GameTemplate.UnityTemplate.Services
 {
     using System.Collections.Generic;
     using Cysharp.Threading.Tasks;

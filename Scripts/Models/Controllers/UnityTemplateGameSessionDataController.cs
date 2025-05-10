@@ -1,10 +1,10 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Models.Controllers
+namespace GameTemplate.UnityTemplate.Models.Controllers
 {
     using System;
     using GameFoundation.DI;
     using GameFoundation.Scripts.Utilities.UserData;
     using GameFoundation.Signals;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.LocalDatas;
+    using GameTemplate.UnityTemplate.Models.LocalDatas;
     using UnityEngine.Scripting;
 
     public class UnityTemplateGameSessionDataController : IUnityTemplateControllerData, IInitializable

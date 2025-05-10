@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Models.Controllers
+namespace GameTemplate.UnityTemplate.Models.Controllers
 {
     public interface IUnityTemplateControllerData
     {

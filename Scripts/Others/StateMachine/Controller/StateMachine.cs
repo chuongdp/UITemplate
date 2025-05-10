@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Controller
+namespace GameTemplate.UnityTemplate.Others.StateMachine.Controller
 {
     using System;
     using System.Collections.Generic;
@@ -7,8 +7,8 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Controller
     using GameFoundation.Scripts.Utilities.LogService;
     using GameFoundation.Signals;
     using HyperGames.HyperCasual.Others.StateMachine.Interface;
-    using HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Interface;
-    using HyperGames.UnityTemplate.UnityTemplate.Others.StateMachine.Signals;
+    using GameTemplate.UnityTemplate.Others.StateMachine.Interface;
+    using GameTemplate.UnityTemplate.Others.StateMachine.Signals;
 
     public abstract class StateMachine : IStateMachine, ITickable
     {

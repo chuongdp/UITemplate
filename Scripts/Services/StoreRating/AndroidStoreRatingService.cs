@@ -1,5 +1,5 @@
 #if UNITY_ANDROID && HYPERGAMES_STORE_RATING
-namespace HyperGames.UnityTemplate.UnityTemplate.Services.StoreRating
+namespace GameTemplate.UnityTemplate.Services.StoreRating
 {
     using System.Threading;
     using Cysharp.Threading.Tasks;

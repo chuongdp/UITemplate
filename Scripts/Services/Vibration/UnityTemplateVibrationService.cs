@@ -1,8 +1,8 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Services.Vibration
+namespace GameTemplate.UnityTemplate.Services.Vibration
 {
     using System;
-    using HyperGames.UnityTemplate.UnityTemplate.Interfaces;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.Controllers;
+    using GameTemplate.UnityTemplate.Interfaces;
+    using GameTemplate.UnityTemplate.Models.Controllers;
     using Lofelt.NiceVibrations;
     using UnityEngine.Scripting;
 

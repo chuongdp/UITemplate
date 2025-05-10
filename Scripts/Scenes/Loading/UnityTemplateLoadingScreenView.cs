@@ -1,4 +1,4 @@
-namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
+namespace GameTemplate.UnityTemplate.Scenes.Loading
 {
     using System;
     using System.Diagnostics;
@@ -14,8 +14,8 @@ namespace HyperGames.UnityTemplate.UnityTemplate.Scenes.Loading
     using GameFoundation.Scripts.Utilities.LogService;
     using GameFoundation.Scripts.Utilities.ObjectPool;
     using GameFoundation.Signals;
-    using HyperGames.UnityTemplate.Scripts.Scenes.Utils;
-    using HyperGames.UnityTemplate.UnityTemplate.UserData;
+    using GameTemplate.Scripts.Scenes.Utils;
+    using GameTemplate.UnityTemplate.UserData;
     using TMPro;
     using UnityEngine;
     using UnityEngine.ResourceManagement.AsyncOperations;

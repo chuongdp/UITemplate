@@ -1,8 +1,8 @@
-﻿namespace HyperGames.UnityTemplate.Models
+﻿namespace GameTemplate.Models
 {
     using System;
     using GameFoundation.Scripts.Interfaces;
-    using HyperGames.UnityTemplate.UnityTemplate.Models.LocalDatas;
+    using GameTemplate.UnityTemplate.Models.LocalDatas;
 
     public abstract class UnityTemplateLocalData<TController> : ILocalData, IUnityTemplateLocalData
     {

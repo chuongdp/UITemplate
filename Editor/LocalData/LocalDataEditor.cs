@@ -79,7 +79,7 @@ namespace UnityTemplate.Editor
             Debug.LogError($"Clear Complete");
         }
 
-        [MenuItem("MIRAI/Local Data Editor")]
+        [MenuItem("Game Tools/Local Data Editor")]
         public static void ShowWindow() { GetWindow(typeof(LocalDataEditor)); }
 
         private static List<ILocalData> LoadAllLocalData()

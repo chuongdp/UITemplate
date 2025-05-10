@@ -18,7 +18,7 @@ namespace Lofelt.NiceVibrations
 
             this._direction                     = (collider.transform.position - this.transform.position).normalized;
             this._direction.y                   = 1f;
-            collider.attachedRigidbody.linearVelocity = Vector2.zero;
+            collider.attachedRigidbody.velocity = Vector2.zero;
             collider.attachedRigidbody.AddForce(this._direction * this.Force);
             this.TargetBall.HitPusher();
         }

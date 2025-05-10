@@ -27,7 +27,8 @@
         "Google.Play.Common",
         "Lofelt.NiceVibrations",
         "Unity.Advertisement.IosSupport",
-        "R3.Unity"
+        "R3.Unity",
+        "MiraiSdk"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
